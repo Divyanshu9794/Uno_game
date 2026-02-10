@@ -1,0 +1,132 @@
+{
+  "project_name": "Neon Uno - Cyberpunk Card Game",
+  "design_philosophy": {
+    "identity": "E1 - The Anti-AI Designer",
+    "core_concept": "Cyber-Casino. A high-stakes, underground futuristic card game.",
+    "emotional_tone": "Electric, Competitive, Sleek, Focus.",
+    "visual_style": "Dark Mode Only. High Contrast. Neon Accents on Deep Black.",
+    "anti_patterns": [
+      "No traditional primary colors (Red/Blue/Green/Yellow) - use Neon variants instead.",
+      "No flat, boring white cards.",
+      "No skeletal/wireframe UI - use surfaces with depth and glassmorphism."
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "\"Unbounded\", sans-serif",
+      "body": "\"Manrope\", sans-serif",
+      "numbers": "\"JetBrains Mono\", monospace"
+    },
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;600;800&family=Unbounded:wght@400;700;900&display=swap",
+    "usage": {
+      "h1": "text-5xl md:text-7xl font-black tracking-tighter uppercase font-headings",
+      "h2": "text-3xl md:text-4xl font-bold tracking-tight font-headings",
+      "h3": "text-xl md:text-2xl font-bold font-headings",
+      "body": "text-base text-zinc-400 font-body leading-relaxed",
+      "card_number": "font-numbers font-bold",
+      "button": "font-headings font-bold uppercase tracking-wider text-sm"
+    }
+  },
+  "colors": {
+    "background": {
+      "default": "#050505",
+      "surface": "#09090b",
+      "surface_highlight": "#18181b"
+    },
+    "game_colors": {
+      "red": "#FF0055",
+      "blue": "#00FFFF",
+      "green": "#CCFF00",
+      "yellow": "#FFAA00",
+      "wild": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#52525B"
+    },
+    "gradients": {
+      "red_glow": "linear-gradient(135deg, #FF0055 0%, transparent 70%)",
+      "blue_glow": "linear-gradient(135deg, #00FFFF 0%, transparent 70%)",
+      "green_glow": "linear-gradient(135deg, #CCFF00 0%, transparent 70%)",
+      "yellow_glow": "linear-gradient(135deg, #FFAA00 0%, transparent 70%)",
+      "wild_glow": "conic-gradient(from 180deg at 50% 50%, #FF0055 0deg, #00FFFF 90deg, #CCFF00 180deg, #FFAA00 270deg, #FF0055 360deg)"
+    }
+  },
+  "layout_strategies": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "spacing_scale": "Use 2x standard tailwind spacing. gap-8 instead of gap-4.",
+    "grid_system": {
+      "lobby": "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen",
+      "game_board": "relative w-full h-screen overflow-hidden flex flex-col justify-between p-4"
+    },
+    "z_indexes": {
+      "background": "z-0",
+      "board": "z-10",
+      "cards_hand": "z-20",
+      "overlay": "z-50",
+      "toast": "z-100"
+    }
+  },
+  "components": {
+    "card": {
+      "description": "The core element. Must feel premium and tactile.",
+      "styles": "relative w-24 h-36 md:w-32 md:h-48 rounded-xl border border-white/10 shadow-2xl transition-transform hover:-translate-y-4 hover:scale-110 cursor-pointer overflow-hidden backdrop-blur-sm bg-black/80",
+      "inner_glow_class": "absolute inset-0 opacity-20 bg-gradient-to-br",
+      "number_style": "absolute top-2 left-2 text-2xl font-numbers font-bold"
+    },
+    "button": {
+      "primary": "relative overflow-hidden rounded-full bg-white text-black px-8 py-4 font-bold transition-all hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]",
+      "uno_shout": "animate-pulse bg-[#FF0055] text-white shadow-[0_0_30px_#FF0055]"
+    },
+    "player_avatar": {
+      "wrapper": "flex flex-col items-center gap-2 p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-md",
+      "active_indicator": "ring-2 ring-white ring-offset-2 ring-offset-black shadow-[0_0_15px_white]"
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "transitions": {
+      "default": {
+        "type": "spring",
+        "stiffness": 300,
+        "damping": 30
+      },
+      "card_deal": {
+        "type": "spring",
+        "stiffness": 200,
+        "damping": 20
+      }
+    },
+    "hover_effects": "scale-105 brightness-110"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/5 border border-white/10",
+    "neon_borders": "box-shadow: 0 0 10px var(--color-glow)",
+    "noise_texture": "Make sure to add a subtle noise overlay on the main background to avoid banding."
+  },
+  "assets": {
+    "images": {
+      "background_texture": "https://images.unsplash.com/photo-1737629918399-45526c4f9264?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMG5lb24lMjB0ZXh0dXJlJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNzQ5NzYyfDA&ixlib=rb-4.1.0&q=85",
+      "card_back_pattern": "CSS Generated (Hexagons or Striped Lines)"
+    },
+    "icons": "lucide-react (Use thin strokes)"
+  },
+  "implementation_instructions": {
+    "setup": [
+      "Add Google Fonts to index.html immediately.",
+      "Install framer-motion: npm install framer-motion",
+      "Configure Tailwind colors to match the 'game_colors' palette."
+    ],
+    "game_logic_ui_bridge": [
+      "Use data-testid='card-{color}-{value}' for every card.",
+      "Use data-testid='player-hand-{id}' for player zones.",
+      "Ensure the 'Uno' button is visible only when the active player has 1 card."
+    ],
+    "critical_rules": [
+      "NEVER use default blue/red colors.",
+      "NEVER use standard browser alerts. Use 'sonner' for game notifications.",
+      "Mobile First: The cards in hand must overlap (`-ml-8`) on mobile to fit."
+    ]
+  }
+}
