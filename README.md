@@ -81,5 +81,3 @@ uvicorn server:app --host 0.0.0.0 --port 8001 --reload
 # Terminal 2 - Frontend
 cd frontend && yarn install && yarn start
 ```
-
-**Need help with code export?** Let me know if you'd like instructions on using Emergent's GitHub integration or download features!
